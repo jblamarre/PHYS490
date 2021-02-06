@@ -1,4 +1,5 @@
 import sys
+import os
 import json
 import numpy as np
 
@@ -67,7 +68,8 @@ def main():
     w_gd_sol = w_gd(x,T,n,m,hyperparam["learning rate"],hyperparam["num iter"])
     
     #Output optmized parameters as input_filename.out
-    f = open("data/"+filepath_in[5]+ ".out", "a")
+    filename = os.path.splitext(filepath_in)[0]
+    f = open(filename+ ".out", "w+")
     for i in w_anal_sol:
         f.write(str(i[0]) + '\n')
     f.write('\n')
