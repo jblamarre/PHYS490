@@ -1,0 +1,13 @@
+{
+	"data":{
+		"filepath_data": "even_mnist.csv",
+		"n_training_data": 26492,
+		"n_test_data": 3000,
+		"n_bits": 14
+	},
+	"exec":{
+		"learning_rate": 3e-1,
+		"num_epochs": 2e4,
+		"display_epochs": 1e2
+	}
+}
