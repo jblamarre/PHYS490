@@ -80,7 +80,7 @@ if __name__ == '__main__':
                                 
     parser.add_argument('--param', metavar='param.json',
                         help='parameter file name')
-    parser.add_argument('-v', type=int, default=1, metavar='N',
+    parser.add_argument('-v', type=int, default=2, metavar='N',
                         help='verbosity (default: 1)')
     parser.add_argument('--res-path', metavar='results',
                         help='path of results')
@@ -91,6 +91,5 @@ if __name__ == '__main__':
         param = json.load(paramfile)
 
     model, data= prep_demo(param['data'])
-
     obj_vals, cross_vals= run_demo(param['exec'], model, data)
-    #plot_results(obj_vals, cross_vals)
+    plot_results(obj_vals, cross_vals)
