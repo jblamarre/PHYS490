@@ -80,7 +80,7 @@ if __name__ == '__main__':
                                 
     parser.add_argument('--param', metavar='param.json',
                         help='parameter file name')
-    parser.add_argument('-v', type=int, default=2, metavar='N',
+    parser.add_argument('-v', type=int, default=1, metavar='N',
                         help='verbosity (default: 1)')
     parser.add_argument('--res-path', metavar='results',
                         help='path of results')
