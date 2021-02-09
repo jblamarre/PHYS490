@@ -1,4 +1,4 @@
-# PHYS490
+# PHYS490 - HW2
 
 ## Dependencies
 main.py:
