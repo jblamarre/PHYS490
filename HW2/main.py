@@ -6,26 +6,11 @@
 
 import json, argparse, torch, sys
 import torch.optim as optim
-import matplotlib.pyplot as plt
-import seaborn as sns
 sys.path.append('src')
 from nn_gen import Net
 from data_gen import Data
 
-def plot_results(obj_vals, cross_vals):
-
-    assert len(obj_vals)==len(cross_vals), 'Length mismatch between the curves'
-    num_epochs= len(obj_vals)
-
-    # Plot saved in results folder
-    plt.plot(range(num_epochs), obj_vals, label= "Training loss", color="blue")
-    plt.plot(range(num_epochs), cross_vals, label= "Test loss", color= "green")
-    plt.legend()
-    plt.savefig(args.res_path + '/fig.pdf')
-    plt.close()
-
-
-def prep_demo(param):
+def prep(param):
     
     # Construct a model and dataset
     model= Net(param['n_bits'])
@@ -35,7 +20,7 @@ def prep_demo(param):
     return model, data
 
 
-def run_demo(param, model, data):
+def run(param, model, data):
 
     # Define an optimizer and the loss function
     optimizer = optim.SGD(model.parameters(), lr=param['learning_rate'])
@@ -73,10 +58,8 @@ def run_demo(param, model, data):
 if __name__ == '__main__':
     
     parser= argparse.ArgumentParser(description=
-                                'PHYS490 HW2 - Reads the data file provided\
-                                in even_mnist.csv . This dataset is created\
-                                from the original MNIST dataset by filtering\
-                                out all odd numbers.')
+                                'PHYS490 HW2 - Digit recognition of even \
+                                    numbers using MNIST dataset and pytorch.')
                                 
     parser.add_argument('--param', metavar='param.json',
                         help='parameter file name')
@@ -90,6 +73,6 @@ if __name__ == '__main__':
     with open(args.param) as paramfile:
         param = json.load(paramfile)
 
-    model, data= prep_demo(param['data'])
-    obj_vals, cross_vals= run_demo(param['exec'], model, data)
-    plot_results(obj_vals, cross_vals)
+    #Prepare model and data and run
+    model, data= prep(param['data'])
+    obj_vals, cross_vals= run(param['exec'], model, data)
