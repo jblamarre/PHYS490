@@ -7,8 +7,10 @@ main.py:
 - torch
 - sys
 - torch.optim
+
 data_gen.py:
 - numpy
+
 nn_gen.py:
 - torch
 - torch.nn
@@ -20,4 +22,8 @@ To run `main.py`, use
 
 ```sh
 python3 main.py param/param_file.json
+```
+For help, use
+```sh
+python3 main.py --help
 ```
