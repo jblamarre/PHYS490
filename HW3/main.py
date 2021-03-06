@@ -36,7 +36,7 @@ def model_train(data, n_dim, seq_len, n_hidden, v, n_layers=1):
     optimizer = torch.optim.Adam(net.parameters(), lr=2e-2)
     
     #Train
-    for e in range(1000):
+    for e in range(2000):
         var_in = Variable(train_in).to(torch.float32)
         var_out = Variable(train_out).to(torch.float32)
         
