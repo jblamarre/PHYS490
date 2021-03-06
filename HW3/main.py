@@ -135,7 +135,7 @@ if __name__ == '__main__':
     data = data_generation(u,v,lb,ub,param['ode']['data_set_size'],
                            param['ode']['seq_len'], param['ode']['epsilon'])
     net = model_train(data, param['model']['n_dim'],param['ode']['seq_len'],
-                      args.v, param['model']['n_hidden'])
+                      param['model']['n_hidden'],args.v)
     model_test(net, int(args.n_tests), u, v, lb, ub, args.res_path)
 
     
