@@ -23,7 +23,7 @@ def true_data(in_file):
     N = len(list(data_lines[0])) - 1
     chain = []
 
-    #Use ascii code to convert +/- to +/- 1
+    #Use ascii code to convert +/- to 0/1
     for data_str in data_lines:
         for char in list(data_str)[:-1]:
             chain.append(44 - ord(char))
